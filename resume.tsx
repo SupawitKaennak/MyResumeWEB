@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Mail, Phone, MapPin, Github } from "lucide-react"
+import { Mail, Phone, MapPin, Github, Youtube, FolderOpen } from "lucide-react"
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 
@@ -34,7 +34,7 @@ export default function Component() {
                 </div>
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
-                  <span>เชียงใหม่</span>
+                  <span>Chiang Mai</span>
                 </div>
                 <div className="flex items-center gap-1">
                 <a href="https://github.com/SupawitKaennak" className="text-gray hover:underline flex items-center gap-1">
@@ -72,55 +72,191 @@ export default function Component() {
                 <CardTitle className="text-2xl">Experience</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-lg font-semibold">Big data </h3>
-                      <p className="text-gray-600">Guizhou Light Industry Polytechnic</p>
-                    </div>
-                    <span className="text-sm text-gray-500">2024</span>
+                <Carousel>
+                  <CarouselContent>
+                    {/* Experience 1 */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">Big data </h3>
+                            <p className="text-gray-600">Guizhou Light Industry Polytechnic</p>
+                          </div>
+                          <span className="text-sm text-gray-500">2024</span>
+                        </div>
+                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                          <li>articipated in a 2-month student exchange.</li>
+                          <li>Learning Python, Data Analyzing, Machine Learning.</li>
+                          <li>Learning Framework for Bigdata, Hadoop, HiveQL, Hbase(Apache Hbase), Zookeeper(Apache Zookeeper).</li>
+                        </ul>
+                      </div>
+                    </CarouselItem>
+                    {/* Experience 2 */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">Network</h3>
+                            <p className="text-gray-600">National Telecom Public Company Limited</p>
+                          </div>
+                          <span className="text-sm text-gray-500">2022</span>
+                        </div>
+                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                          <li>Internship in a 2-month.</li>
+                          <li>Learning About Config router, Ip, Static Ip, DHPC, Installation and update firmware, Network Security and Network diagram design.</li>
+                          <li>Industry visit at "Sop Poeng Sub District Administration Organization".</li>
+                        </ul>
+                      </div>
+                    </CarouselItem>
+                    {/* Experience 3 */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">Computer and Electronics</h3>
+                            <p className="text-gray-600">Speed Cm Company Limited</p>
+                          </div>
+                          <span className="text-sm text-gray-500">2020</span>
+                        </div>
+                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                          <li>Internship in a 2-month.</li>
+                          <li>Computer and Electronic Equipment Repair Technician.</li>
+                          <li>Industry visit at "Heng Leasing and Capital Public Company Limited" and CCTV Installation.</li>
+                        </ul>
+                      </div>
+                    </CarouselItem>
+
+                    {/* Experience 4: Gallery */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">Exchange Student</h3>                          
+                          </div>                     
+                        </div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <img
+                              src="img/Picture20.jpg"
+                              alt="Internship Gallery Preview"
+                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                            />
+                          </DialogTrigger>
+                          <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none">
+                            <DialogTitle className="sr-only">Gallery Image</DialogTitle>
+                            <DialogDescription className="sr-only">Gallery image preview</DialogDescription>
+                            <Carousel>
+                              <CarouselContent>
+                                <CarouselItem>
+                                  <img src="img/Picture20.jpg" alt="Gallery1" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture21.jpg" alt="Gallery2" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture22.jpg" alt="Gallery3" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture23.jpg" alt="Gallery3" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                              </CarouselContent>
+                              <div className="flex justify-center gap-2 mt-4">
+                                <CarouselPrevious />
+                                <CarouselNext />
+                              </div>
+                            </Carousel>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </CarouselItem>
+
+                    {/* Experience 5: Gallery */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">High vocational Certificate Level 2</h3>                          
+                          </div>                     
+                        </div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <img
+                              src="img/Picture14.png"
+                              alt="Internship Gallery Preview"
+                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                            />
+                          </DialogTrigger>
+                          <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none">
+                            <DialogTitle className="sr-only">Gallery Image</DialogTitle>
+                            <DialogDescription className="sr-only">Gallery image preview</DialogDescription>
+                            <Carousel>
+                              <CarouselContent>
+                                <CarouselItem>
+                                  <img src="img/Picture14.png" alt="Gallery1" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture15.jpg" alt="Gallery2" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture16.jpg" alt="Gallery3" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                              </CarouselContent>
+                              <div className="flex justify-center gap-2 mt-4">
+                                <CarouselPrevious />
+                                <CarouselNext />
+                              </div>
+                            </Carousel>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </CarouselItem>
+
+                    {/* Experience 6: Gallery */}
+                    <CarouselItem>
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h3 className="text-lg font-semibold">Vocational Certificate Year 3</h3>                          
+                          </div>                     
+                        </div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <img
+                              src="img/Picture17.jpg"
+                              alt="Internship Gallery Preview"
+                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                            />
+                          </DialogTrigger>
+                          <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none">
+                            <DialogTitle className="sr-only">Gallery Image</DialogTitle>
+                            <DialogDescription className="sr-only">Gallery image preview</DialogDescription>
+                            <Carousel>
+                              <CarouselContent>
+                                <CarouselItem>
+                                  <img src="img/Picture17.jpg" alt="Gallery1" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture18.jpg" alt="Gallery2" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture19.jpg" alt="Gallery3" className="max-w-full max-h-[95vh] w-auto h-auto rounded-lg" />
+                                </CarouselItem>
+                              </CarouselContent>
+                              <div className="flex justify-center gap-2 mt-4">
+                                <CarouselPrevious />
+                                <CarouselNext />
+                              </div>
+                            </Carousel>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </CarouselItem>                    
+                  </CarouselContent>
+                  <div className="flex justify-center gap-2 mt-4">
+                    <CarouselPrevious />
+                    <CarouselNext />
                   </div>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>articipated in a 2-month student exchange.</li>
-                    <li>Learning Python, Data Analyzing, Machine Learning.</li>
-                    <li>Learning Framework for Bigdata, Hadoop, HiveQL, Hbase(Apache Hbase), Zookeeper(Apache Zookeeper).</li>
-                  </ul>
-                </div>
-
-                <Separator />
-
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-lg font-semibold">Network</h3>
-                      <p className="text-gray-600">National Telecom Public Company Limited</p>
-                    </div>
-                    <span className="text-sm text-gray-500">2022</span>
-                  </div>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Internship in a 2-month.</li>
-                    <li>Learning About Config router, Ip, Static Ip, DHPC, Installation and update firmware, Network Security and Network diagram design.</li>
-                    <li>Industry visit at "Sop Poeng Sub District Administration Organization".</li>
-                  </ul>
-                </div>
-
-                <Separator />
-
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-lg font-semibold">Network</h3>
-                      <p className="text-gray-600">Speed Cm Company Limited</p>
-                    </div>
-                    <span className="text-sm text-gray-500">2020</span>
-                  </div>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Internship in a 2-month.</li>
-                    <li>Computer and Electronic Equipment Repair Technician.</li>
-                    <li>Industry visit at "Heng Leasing and Capital Public Company Limited" and CCTV Installation.</li>
-                  </ul>
-                </div>
-
+                </Carousel>
               </CardContent>
             </Card>
 
@@ -329,10 +465,10 @@ export default function Component() {
                           <Badge variant="outline">Blender</Badge>
                         </div>
                         <div className="flex gap-3 text-sm">
-                          <a href="https://github.com/SupawitKaennak/portfolio" className="text-blue-600 hover:underline flex items-center gap-1">
-                            <Github className="w-3 h-3" />
-                            GitHub
-                          </a>
+                            <a href="https://drive.google.com/drive/folders/1Ve96HnDRfFD8WxygLHhjyen5bREZI2VP?usp=sharing" className="text-blue-600 hover:underline flex items-center gap-1">
+                             <FolderOpen className="w-3 h-3" />
+                             GoogleDrive
+                           </a>
                         </div>
                       </div>
                     </CarouselItem>
@@ -342,7 +478,7 @@ export default function Component() {
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">Animation</h3>
-                            <p className="text-gray-600">Personal Portfolio and Resume Website</p>
+                            <p className="text-gray-600">Animation and Video Editing</p>
                           </div>
                           <span className="text-sm text-gray-500">2019</span>
                         </div>
@@ -387,9 +523,9 @@ export default function Component() {
                           <Badge variant="outline">Adobe Premiere Pro</Badge>
                         </div>
                         <div className="flex gap-3 text-sm">
-                          <a href="https://github.com/SupawitKaennak/portfolio" className="text-blue-600 hover:underline flex items-center gap-1">
-                            <Github className="w-3 h-3" />
-                            GitHub
+                          <a href="https://www.youtube.com/watch?v=m84oFcfIzg4" className="text-blue-600 hover:underline flex items-center gap-1">
+                            <Youtube className="w-3 h-3" />
+                            Youtube
                           </a>
                         </div>
                       </div>
