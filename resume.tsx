@@ -16,7 +16,7 @@ export default function Component() {
               {/* Add profile picture */}
               <div className="mb-4">
                 <img
-                  src="/mypic.png"
+                  src="img/mypic.png"
                   alt="รูปโปรไฟล์"
                   className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
                 />
