@@ -10,7 +10,7 @@ export default function Component() {
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-300 to-pink-200 py-8">
       <div className="max-w-4xl mx-auto px-4">
         {/* Header Section */}
-        <Card className="mb-2">
+        <Card className="mb-6">
           <CardContent className="pt-6">
             <div className="text-center mb-6">
               {/* Add profile picture */}
@@ -47,9 +47,10 @@ export default function Component() {
           </CardContent>
         </Card>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Left Column */}
-          <div className="md:col-span-2 space-y-6">
+        {/* Main Content: All sections in one column for mobile, grid for desktop */}
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-3">
+          {/* Left/Main Content (About, Experience, Education, Projects) */}
+          <div className="md:col-span-2 flex flex-col gap-6">
             {/* About Section */}
             <Card>
               <CardHeader>
@@ -405,7 +406,7 @@ export default function Component() {
             
 
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="flex flex-col gap-6">
             {/* Skills Section */}
             <Card>
               <CardHeader>
