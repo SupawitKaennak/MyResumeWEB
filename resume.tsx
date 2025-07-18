@@ -344,7 +344,7 @@ export default function Component() {
                             <h3 className="text-lg font-semibold">Animation</h3>
                             <p className="text-gray-600">Personal Portfolio and Resume Website</p>
                           </div>
-                          <span className="text-sm text-gray-500">2020</span>
+                          <span className="text-sm text-gray-500">2019</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
