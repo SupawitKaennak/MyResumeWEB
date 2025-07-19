@@ -571,8 +571,7 @@ export default function Component() {
                   <h4 className="font-semibold mb-2">Tools</h4>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary">Git</Badge>
-                    <Badge variant="secondary">Docker</Badge>
-                    <Badge variant="secondary">AWS</Badge>
+                    <Badge variant="secondary">Docker</Badge>                   
                     <Badge variant="secondary">Figma</Badge>
                   </div>
                 </div>
