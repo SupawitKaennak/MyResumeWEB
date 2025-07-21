@@ -426,10 +426,8 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         This game is a VRgame simulation environment and dapartment "C3 Software Engineering.
                         </p>
                         <div className="flex flex-wrap gap-3 mb-3">
-                          <Badge variant="outline">Next.js</Badge>
-                          <Badge variant="outline">Node.js</Badge>
-                          <Badge variant="outline">Firebase</Badge>
-                          <Badge variant="outline">RESTful API</Badge>
+                          <Badge variant="outline">Roblox Studio</Badge>
+                          <Badge variant="outline">Lua</Badge>  
                         </div>
                         <div className="flex gap-3 text-sm">
                           <a href="https://www.youtube.com/watch?v=gzDVqyh8m9o" className="text-blue-600 hover:underline flex items-center gap-1">
