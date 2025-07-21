@@ -58,10 +58,8 @@ export default function Component() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 leading-relaxed">
-                  I am currently a third-year Software Engineering student. 
-                  Although I have limited experience in this field, I am always eager to learn new things. 
-                  I am determined to solve problems I couldn’t initially complete and won’t give up until I succeed. 
-                  I always tell myself, "If we're not good at something yet, we just have to keep trying until we get it."
+                Third-year Software Engineering student with a basic understanding of programming languages including SLC, Python, HTML, CSS, PHP, MySQL, JavaScript, and TypeScript.
+Although I have limited hands-on experience, I am eager to learn, open to feedback, and ready to grow through real-world challenges.
                 </p>
               </CardContent>
             </Card>
@@ -648,11 +646,16 @@ export default function Component() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
+                  <h4 className="font-semibold mb-2">Language</h4>
+                  <div className="flex flex-wrap gap-3">                   
+                    <Badge variant="secondary">typescript</Badge>
+                    <Badge variant="secondary">python</Badge>
+                  </div>
+                </div>
+                <div>
                   <h4 className="font-semibold mb-2">Frontend</h4>
-                  <div className="flex flex-wrap gap-3">
-                    <Badge variant="secondary">React</Badge>
+                  <div className="flex flex-wrap gap-3">                   
                     <Badge variant="secondary">Next.js</Badge>
-                    <Badge variant="secondary">TypeScript</Badge>
                     <Badge variant="secondary">Tailwind CSS</Badge>
                   </div>
                 </div>
@@ -666,8 +669,11 @@ export default function Component() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2">Tools</h4>
+                  <h4 className="font-semibold mb-2">Tools & AI</h4>
                   <div className="flex flex-wrap gap-3">
+                    <Badge variant="secondary">vscode</Badge>
+                    <Badge variant="secondary">cursor</Badge>
+                    <Badge variant="secondary">postman</Badge>
                     <Badge variant="secondary">Git</Badge>
                     <Badge variant="secondary">Docker</Badge>                   
                     <Badge variant="secondary">Figma</Badge>
