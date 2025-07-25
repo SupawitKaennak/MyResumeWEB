@@ -155,7 +155,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                                   <img src="img/Picture22.jpg" alt="Gallery3" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
                                 </CarouselItem>
                                 <CarouselItem>
-                                  <img src="img/Picture23.jpg" alt="Gallery3" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
+                                  <img src="img/Picture23.jpg" alt="Gallery4" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
                                 </CarouselItem>
                               </CarouselContent>
                               <div className="flex justify-center gap-2 mt-4">
@@ -430,7 +430,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                           <Badge variant="outline">Lua</Badge>  
                         </div>
                         <div className="flex gap-3 text-sm">
-                          <a href="https://www.youtube.com/watch?v=gzDVqyh8m9o" className="text-blue-600 hover:underline flex items-center gap-1">
+                          <a href="https://www.youtube.com/watch?v=gzDVqyh8m9o" className="text-blue-600 hover:underline flex items-center gap-1">F
                             <Youtube className="w-3 h-3" />
                             Youtube
                           </a>
