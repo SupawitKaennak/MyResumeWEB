@@ -1,16 +1,25 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Mail, Phone, MapPin, Github, Youtube, FolderOpen } from "lucide-react"
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import NetworkBackground from "@/components/NetworkBackground"
+import DarkModeToggle from "@/components/DarkModeToggle"
+import { useState } from "react"
 
 export default function Component() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-300 to-pink-200 py-8">
+    <div className={`min-h-screen py-8 ${isDarkMode ? 'dark' : ''}`}>
+      <NetworkBackground />
+      <DarkModeToggle onToggle={setIsDarkMode} isDark={isDarkMode} />
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
-        <Card className="mb-8">
+                    <Card className={`mb-8 ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}`}>
                         <CardContent className="pt-8">
                 <div className="text-center mb-8">
               {/* Add profile picture */}
@@ -21,9 +30,9 @@ export default function Component() {
                   className="w-32 h-32 md:w-80 md:h-80 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
                 />
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">Supawit Kaennak</h1>
-              <p className="text-xl text-gray-600 mb-4">Hi my nickname parn.</p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+              <h1 className={`text-4xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Supawit Kaennak</h1>
+              <p className={`text-xl mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Hi my nickname parn.</p>
+              <div className={`flex flex-wrap justify-center gap-4 text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 <div className="flex items-center gap-1">
                   <Mail className="w-4 h-4" />
                   <span>SupawitKaennak@hotmail.com</span>
@@ -37,7 +46,7 @@ export default function Component() {
                   <span>Chiang Mai</span>
                 </div>
                 <div className="flex items-center gap-1">
-                <a href="https://github.com/SupawitKaennak" className="text-gray hover:underline flex items-center gap-1">
+                <a href="https://github.com/SupawitKaennak" className={`${isDarkMode ? 'text-blue-400' : 'text-gray-600'} hover:underline flex items-center gap-1`}>
                   <Github className="w-4 h-4" />
                   <span>https://github.com/SupawitKaennak</span>
                   </a>
@@ -51,13 +60,13 @@ export default function Component() {
         <div className="flex flex-col gap-8 md:grid md:grid-cols-4">
           {/* Left/Main Content (About, Experience, Education, Projects) */}
           <div className="md:col-span-3 flex flex-col gap-8">
-            {/* About Section */}
-            <Card>
+                          {/* About Section */}
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
-                <CardTitle className="text-2xl">About Me</CardTitle>
+                <CardTitle className={`text-2xl ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>About Me</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed">
+                <p className={`leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Third-year Software Engineering student with a basic understanding of programming languages including SLC, Python, HTML, CSS, PHP, MySQL, JavaScript, and TypeScript.
 Although I have limited hands-on experience, I am eager to learn, open to feedback, and ready to grow through real-world challenges.
                 </p>
@@ -65,9 +74,9 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
             </Card>
 
             {/* Experience Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
-                <CardTitle className="text-2xl">Experience</CardTitle>
+                <CardTitle className={`text-2xl ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Experience</CardTitle>
               </CardHeader>
               <CardContent className="space-y-8">
                 <Carousel>
@@ -77,12 +86,12 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                       <div>
                         <div className="flex justify-between items-start mb-2">
                           <div>
-                            <h3 className="text-lg font-semibold">Big data </h3>
-                            <p className="text-gray-600">Guizhou Light Industry Polytechnic</p>
-                          </div>
-                          <span className="text-sm text-gray-500">2024</span>
+                            <h3 className={`text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Big data </h3>
+                             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Guizhou Light Industry Polytechnic</p>
+                           </div>
+                           <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2024</span>
                         </div>
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <ul className={`list-disc list-inside space-y-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                           <li>articipated in a 2-month student exchange.</li>
                           <li>Learning Python, Data Analyzing, Machine Learning.</li>
                           <li>Learning Framework for Bigdata, Hadoop, HiveQL, Hbase(Apache Hbase), Zookeeper(Apache Zookeeper).</li>
@@ -94,12 +103,13 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                       <div>
                         <div className="flex justify-between items-start mb-2">
                           <div>
+                          
                             <h3 className="text-lg font-semibold">Network</h3>
-                            <p className="text-gray-600">National Telecom Public Company Limited</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>National Telecom Public Company Limited</p>
                           </div>
-                          <span className="text-sm text-gray-500">2022</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2022</span>
                         </div>
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <ul className={`list-disc list-inside space-y-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                           <li>Internship in a 2-month.</li>
                           <li>Learning About Config router, Ip, Static Ip, DHPC, Installation and update firmware, Network Security and Network diagram design.</li>
                           <li>Industry visit at "Sop Poeng Sub District Administration Organization".</li>
@@ -112,11 +122,11 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">Computer and Electronics</h3>
-                            <p className="text-gray-600">Speed Cm Company Limited</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Speed Cm Company Limited</p>
                           </div>
-                          <span className="text-sm text-gray-500">2020</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2020</span>
                         </div>
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <ul className={`list-disc list-inside space-y-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                           <li>Internship in a 2-month.</li>
                           <li>Computer and Electronic Equipment Repair Technician.</li>
                           <li>Industry visit at "Heng Leasing and Capital Public Company Limited" and CCTV Installation.</li>
@@ -268,7 +278,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
             </Card>
 
             {/* Education Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-2xl">Education</CardTitle>
               </CardHeader>
@@ -276,10 +286,10 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-semibold">Software Engineering</h3>
-                    <p className="text-gray-600">Rajamangala University of technology Lanna </p>
-                    <p className="text-sm text-gray-500">Bachelor's Degree (currently studying)</p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Rajamangala University of technology Lanna </p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Bachelor's Degree (currently studying)</p>
                   </div>
-                  <span className="text-sm text-gray-500">2023</span>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2023</span>
                 </div>
               </CardContent>   
             
@@ -288,10 +298,10 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-semibold">Network Computer</h3>
-                    <p className="text-gray-600">Chiang Mai Technical College</p>
-                    <p className="text-sm text-gray-500">Diploma / Higher Vocational Certificate (Graduate) </p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Chiang Mai Technical College</p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Diploma / Higher Vocational Certificate (Graduate) </p>
                   </div>
-                  <span className="text-sm text-gray-500">2022</span>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2022</span>
                 </div>
               </CardContent>  
             </div>
@@ -301,17 +311,17 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-semibold">Computer Technology Program</h3>
-                    <p className="text-gray-600">Chiang Mai Technical College</p>
-                    <p className="text-sm text-gray-500">Vocational Certificate (Graduate) </p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Chiang Mai Technical College</p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Vocational Certificate (Graduate) </p>
                   </div>
-                  <span className="text-sm text-gray-500">2020</span>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2020</span>
                 </div>
               </CardContent>  
             </div>
             </Card> 
 
             {/* Projects Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-2xl">Projects</CardTitle>
               </CardHeader>
@@ -325,16 +335,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">PATONPHUENG_LEAF_PLATE_MANAGEMENT</h3>
-                            <p className="text-gray-600">AboutExpense and Income Management Dashboard Web Application.</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>About Expense and Income Management Dashboard Web Application.</p>
                           </div>
-                          <span className="text-sm text-gray-500">2025</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2025</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
                             <img
-                              src="img/Picture1.png"
+                              src="img/Picture1.jpeg"
                               alt="PICTURE1"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm"
+                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
                             />
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
@@ -343,10 +353,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             <Carousel>
                               <CarouselContent>
                                 <CarouselItem>
-                                  <img src="img/Picture1.png" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
+                                  <img src="img/Picture1.jpeg" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
                                 </CarouselItem>
                                 <CarouselItem>
-                                  <img src="img/Picture2.png" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
+                                  <img src="img/Picture2.jpeg" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture38.jpeg" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
+                                </CarouselItem>
+                                <CarouselItem>
+                                  <img src="img/Picture39.jpeg" alt="PICTURE1" className="max-w-[85vw] max-h-[85vh] w-auto h-auto rounded-lg mx-auto" />
                                 </CarouselItem>
                                 {/* เพิ่มรูปอื่น ๆ ได้ที่นี่ */}
                               </CarouselContent>
@@ -357,14 +373,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             </Carousel>
                           </DialogContent>
                         </Dialog>
-                        <p className="text-gray-700 text-sm mb-3">
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                           Develop a web application for managing expenses-income And cost calculation.
                         </p>
                         <div className="flex flex-wrap gap-3 mb-3">
-                          <Badge variant="outline">Next.js</Badge>
-                          <Badge variant="outline">Node.js</Badge>
-                          <Badge variant="outline">Firebase</Badge>
-                          <Badge variant="outline">RESTful API</Badge>
+                          <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Next.js</Badge>
+                          <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Node.js</Badge>
+                          <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Firebase</Badge>
+                          <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>RESTful API</Badge>
                         </div>
                         <div className="flex gap-3 text-sm">
                           <a href="https://github.com/SupawitKaennak/RMUTL_PATONPHUENG_LEAF_PLATE_MANAGEMENT.git" className="text-blue-600 hover:underline flex items-center gap-1">
@@ -381,16 +397,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">Roblox 3d VRgame for Openhouse "2024 RMUTL Software Engineering"</h3>
-                            <p className="text-gray-600">About VRgame roblox.</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>About VRgame roblox.</p>
                           </div>
-                          <span className="text-sm text-gray-500">2024</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2024</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
                             <img
                               src="img/Picture30.png"
                               alt="PICTURE2"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm"
+                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
                             />
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
@@ -422,7 +438,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             </Carousel>
                           </DialogContent>
                         </Dialog>
-                        <p className="text-gray-700 text-sm mb-3">
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                         This game is a VRgame simulation environment and dapartment "C3 Software Engineering.
                         </p>
                         <div className="flex flex-wrap gap-3 mb-3">
@@ -444,16 +460,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">OBJECT DETECTION QUADCOPTER</h3>
-                            <p className="text-gray-600">About Hardware and software project</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>About Hardware and software project</p>
                           </div>
-                          <span className="text-sm text-gray-500">2022</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2022</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
                             <img
                               src="img/Picture3.jpg"
                               alt="PICTURE3"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm"
+                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
                             />
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
@@ -488,9 +504,8 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             </Carousel>
                           </DialogContent>
                         </Dialog>
-                        <p className="text-gray-700 text-sm mb-3">
-                          About
-                          This project in Diploma / High vocational Certificate Level 2(final project) — Completed 
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          About This project in Diploma / High vocational Certificate Level 2(final project) — Completed 
                         </p>
                         <div className="flex flex-wrap gap-3 mb-3">
                           <Badge variant="outline">Python</Badge>
@@ -512,16 +527,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">Electronic Division Simulator 3D On Computer Base</h3>
-                            <p className="text-gray-600">About Game and 3d design</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>About Game and 3d design</p>
                           </div>
-                          <span className="text-sm text-gray-500">2020</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2020</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
                             <img
                               src="img/Picture5.png"
                               alt="PICTURE4"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm"
+                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
                             />
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
@@ -547,7 +562,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             </Carousel>
                           </DialogContent>
                         </Dialog>
-                        <p className="text-gray-700 text-sm mb-3">
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                           About Walking simulation Department of electronic at Chiang Mai Technical College
                           This project in Vocational Certificate Year 3(final project) — Completed 
                         </p>
@@ -569,16 +584,16 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3 className="text-lg font-semibold">Animation</h3>
-                            <p className="text-gray-600">Animation and Video Editing</p>
+                            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Animation and Video Editing</p>
                           </div>
-                          <span className="text-sm text-gray-500">2019</span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>2019</span>
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
                             <img
                               src="img/Picture28.png"
                               alt="PICTURE5"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm"
+                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
                             />
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
@@ -607,7 +622,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                             </Carousel>
                           </DialogContent>
                         </Dialog>
-                        <p className="text-gray-700 text-sm mb-3">
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                         This project in Vocational Certificate Year 2 — Completed 
                         </p>
                         <div className="flex flex-wrap gap-3 mb-3">
@@ -638,7 +653,7 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
           {/* Right Column */}
           <div className="flex flex-col gap-8">
             {/* Skills Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-xl">Skill</CardTitle>
               </CardHeader>
@@ -646,59 +661,59 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                 <div>
                   <h4 className="font-semibold mb-2">Language</h4>
                   <div className="flex flex-wrap gap-3">                   
-                    <Badge variant="secondary">typescript</Badge>
-                    <Badge variant="secondary">python</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>typescript</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>python</Badge>
                   </div>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Frontend</h4>
                   <div className="flex flex-wrap gap-3">                   
-                    <Badge variant="secondary">Next.js</Badge>
-                    <Badge variant="secondary">Tailwind CSS</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Next.js</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Tailwind CSS</Badge>
                   </div>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Backend</h4>
                   <div className="flex flex-wrap gap-3">
-                    <Badge variant="secondary">Node.js</Badge>
-                    <Badge variant="secondary">Express</Badge>
-                    <Badge variant="secondary">MySQL</Badge>
-                    <Badge variant="secondary">Firebase</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Node.js</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Express</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>MySQL</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Firebase</Badge>
                   </div>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Tools & AI</h4>
-                  <div className="flex flex-wrap gap-3">
-                    <Badge variant="secondary">vscode</Badge>
-                    <Badge variant="secondary">cursor</Badge>
-                    <Badge variant="secondary">postman</Badge>
-                    <Badge variant="secondary">Git</Badge>
-                    <Badge variant="secondary">Docker</Badge>                   
-                    <Badge variant="secondary">Figma</Badge>
+                                    <div className="flex flex-wrap gap-3">
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>vscode</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>cursor</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>postman</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Git</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Docker</Badge>
+                    <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Figma</Badge>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Languages Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-xl">Language</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">                
                 <div className="flex justify-between">
                   <span>English</span>
-                  <span className="text-sm text-gray-600">A2</span>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>A2</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Chinese</span>
-                  <span className="text-sm text-gray-600">Only Read Pinyin</span>
+                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Only Read Pinyin</span>
                 </div>
               </CardContent>
             </Card>
 
             {/* Certifications Section */}
-            <Card>
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-xl">Certifications</CardTitle>
               </CardHeader>
@@ -822,20 +837,20 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
             </Card>
 
             {/* Interests Section */}
-            <Card >
+            <Card className={isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-100 border-gray-200'}>
               <CardHeader>
                 <CardTitle className="text-xl ">Hobbies</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-3">
-                  <Badge variant="outline">Play game</Badge>
-                  <Badge variant="outline">Play guitar</Badge>
-                  <Badge variant="outline">Listen music</Badge>
-                  <Badge variant="outline">Watch movies</Badge>
-                  <Badge variant="outline">Watch anime</Badge>
-                  <Badge variant="outline">read manga</Badge>
-                  <Badge variant="outline">Coding</Badge>
-                </div>
+                                  <div className="flex flex-wrap gap-3">
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Play game</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Play guitar</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Listen music</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Watch movies</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Watch anime</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>read manga</Badge>
+                   <Badge className={isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-700 border-gray-300'}>Coding</Badge>
+                  </div>
               </CardContent>
             </Card>
           </div>
