@@ -3,12 +3,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Mail, Phone, MapPin, Github, Youtube, FolderOpen } from "lucide-react"
+import { Mail, Phone, MapPin, Github, Youtube, FolderOpen, Images } from "lucide-react"
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import NetworkBackground from "@/components/NetworkBackground"
 import DarkModeToggle from "@/components/DarkModeToggle"
 import { useState } from "react"
+
+// ฟังก์ชันสำหรับสร้าง component ที่แสดงจำนวนรูปภาพ
+const ImageCounter = ({ count, isDarkMode }: { count: number; isDarkMode: boolean }) => (
+  <div className={`absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1 ${isDarkMode ? 'bg-white/20' : 'bg-black/70'}`}>
+    <Images className="w-3 h-3" />
+    <span>{count}</span>
+  </div>
+);
 
 export default function Component() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -144,11 +152,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture20.jpg"
-                              alt="Internship Gallery Preview"
-                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture20.jpg"
+                                alt="Internship Gallery Preview"
+                                className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={4} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Gallery Image</DialogTitle>
@@ -188,11 +199,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture14.png"
-                              alt="Internship Gallery Preview"
-                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture14.png"
+                                alt="Internship Gallery Preview"
+                                className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={6} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Gallery Image</DialogTitle>
@@ -238,11 +252,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture17.jpg"
-                              alt="Internship Gallery Preview"
-                              className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture17.jpg"
+                                alt="Internship Gallery Preview"
+                                className="w-full h-40 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={3} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Gallery Image</DialogTitle>
@@ -341,11 +358,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture1.jpeg"
-                              alt="PICTURE1"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture1.jpeg"
+                                alt="PICTURE1"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={4} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Project Image</DialogTitle>
@@ -403,11 +423,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture30.png"
-                              alt="PICTURE2"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture30.png"
+                                alt="PICTURE2"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={5} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Project Image</DialogTitle>
@@ -466,11 +489,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture3.jpg"
-                              alt="PICTURE3"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture3.jpg"
+                                alt="PICTURE3"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={6} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Project Image</DialogTitle>
@@ -533,11 +559,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture5.png"
-                              alt="PICTURE4"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture5.png"
+                                alt="PICTURE4"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={3} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Project Image</DialogTitle>
@@ -590,11 +619,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture28.png"
-                              alt="PICTURE5"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture28.png"
+                                alt="PICTURE5"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={4} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Project Image</DialogTitle>
@@ -731,11 +763,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture36.jpeg"
-                              alt="Chinese & Big Data Technology Certificate"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture36.jpeg"
+                                alt="Chinese & Big Data Technology Certificate"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={1} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Certificate Image</DialogTitle>
@@ -767,11 +802,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture37.jpeg"
-                              alt="Link Campus Cabling & Networking Certificate"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture37.jpeg"
+                                alt="Link Campus Cabling & Networking Certificate"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={1} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Certificate Image</DialogTitle>
@@ -803,11 +841,14 @@ Although I have limited hands-on experience, I am eager to learn, open to feedba
                         </div>
                         <Dialog>
                           <DialogTrigger asChild>
-                            <img
-                              src="img/Picture35.jpeg"
-                              alt="NT Certificate"
-                              className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
-                            />
+                            <div className="relative">
+                              <img
+                                src="img/Picture35.jpeg"
+                                alt="NT Certificate"
+                                className="w-full h-70 object-cover rounded-lg border shadow-sm cursor-pointer"
+                              />
+                              <ImageCounter count={1} isDarkMode={isDarkMode} />
+                            </div>
                           </DialogTrigger>
                           <DialogContent className="flex flex-col items-center p-0 bg-transparent shadow-none border-none max-w-[90vw] max-h-[90vh]">
                             <DialogTitle className="sr-only">Certificate Image</DialogTitle>
